@@ -24,5 +24,10 @@ children := OrderedCollection new
 
 { #category : 'as yet unclassified' }
 FSDirectory >> searchByName: anElement [
-children do: [ :child | child searchByName: anElement ]
+    | res |
+    children do: [ :child |
+        res := child searchByName: anElement.
+        res ifNotNil: [ ^ res ].
+    ].
+    ^ nil
 ]

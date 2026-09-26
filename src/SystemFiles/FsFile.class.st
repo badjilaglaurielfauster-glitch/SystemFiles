@@ -8,17 +8,9 @@ Class {
 	#package : 'SystemFiles'
 }
 
-{ #category : 'accessing' }
-FsFile >> name [
-^name
-]
-
-{ #category : 'accessing' }
-FsFile >> name: aName [
-name:= aName 
-]
-
 { #category : 'as yet unclassified' }
 FsFile >> searchByName: aString [
- (name = aString) ifTrue: [ ^self ]
+    (name = aString)
+        ifTrue: [ ^ self ].
+    ^ nil
 ]
