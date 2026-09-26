@@ -23,6 +23,17 @@ children := OrderedCollection new
 ]
 
 { #category : 'as yet unclassified' }
+FSDirectory >> searchByContents: aString [
+|res|
+
+children do: [ :child | 
+	res:= child searchByContents: aString .
+	res ifNotNil: [ ^res]
+	].
+^nil 
+]
+
+{ #category : 'as yet unclassified' }
 FSDirectory >> searchByName: anElement [
     | res |
     children do: [ :child |
