@@ -23,6 +23,11 @@ name:= aName
 ]
 
 { #category : 'as yet unclassified' }
+FSEntry >> searchByContents: aString [
+^self subclassResponsibility 
+]
+
+{ #category : 'as yet unclassified' }
 FSEntry >> searchByName: aString [
 ^self subclassResponsibility
 ]
