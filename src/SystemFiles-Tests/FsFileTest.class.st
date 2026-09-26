@@ -32,6 +32,20 @@ self assert: result equals: nil
 ]
 
 { #category : 'tests' }
+FsFileTest >> testFindFileByContents [
+
+| file result |
+
+file := FsFile new
+    name: 'rapport.md';
+    contents: 'Voici mon rapport de MIAGE'.
+
+result := file searchByContents: 'rapport'.
+
+self assert: result equals: file
+]
+
+{ #category : 'tests' }
 FsFileTest >> testGiveFile [
 
 |files result|
