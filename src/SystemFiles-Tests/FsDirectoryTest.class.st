@@ -30,7 +30,7 @@ dir add: file .
 
 result := directory searchByName: 'fsDirectory.st' .
 
-self assert: file == result 
+self assert: file equals: result 
 
 ]
 
@@ -62,5 +62,5 @@ dir add: res .
 
 result := directory searchByName: 'fsDirectory.st' .
 
-self assert: file == result 
+self assert: file equals: result 
 ]
