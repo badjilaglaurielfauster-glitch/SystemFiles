@@ -6,6 +6,18 @@ Class {
 }
 
 { #category : 'tests' }
+FsFileTest >> testDoesNotGiveFileWhenNameDoesNotMatch [
+
+| file result |
+
+file := FsFile new name: 'rapport.md'.
+
+result := file searchByName: 'test.st'.
+
+self assert: result equals: nil
+]
+
+{ #category : 'tests' }
 FsFileTest >> testGiveFile [
 
 |files result|
