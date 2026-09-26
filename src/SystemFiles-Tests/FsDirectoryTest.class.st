@@ -19,6 +19,24 @@ self assert: result equals: nil
 ]
 
 { #category : 'tests' }
+FsDirectoryTest >> testCantFindFileByContents [
+
+| directory file result |
+
+directory := FSDirectory new name: 'src'.
+
+file := FsFile new
+    name: 'rapport.md';
+    contents: 'Mon rapport de MIAGE'.
+
+directory add: file.
+
+result := directory searchByContents: 'Java'.
+
+self assert: result equals: nil
+]
+
+{ #category : 'tests' }
 FsDirectoryTest >> testChildrenInAnotherDirectory [
 
 |directory dir file result|
@@ -32,6 +50,44 @@ result := directory searchByName: 'fsDirectory.st' .
 
 self assert: file equals: result 
 
+]
+
+{ #category : 'tests' }
+FsDirectoryTest >> testFindFileByContents [
+
+| directory file result |
+
+directory := FSDirectory new name: 'src'.
+
+file := FsFile new
+    name: 'rapport.md';
+    contents: 'Mon rapport de MIAGE'.
+
+directory add: file.
+
+result := directory searchByContents: 'MIAGE'.
+
+self assert: result equals: file
+]
+
+{ #category : 'tests' }
+FsDirectoryTest >> testFindFileByContentsInAnotherDirectory [
+
+| directory dir file result |
+
+directory := FSDirectory new name: 'root'.
+dir := FSDirectory new name: 'src'.
+
+file := FsFile new
+    name: 'rapport.md';
+    contents: 'Mon rapport de MIAGE'.
+
+directory add: dir.
+dir add: file.
+
+result := directory searchByContents: 'MIAGE'.
+
+self assert: result equals: file
 ]
 
 { #category : 'tests' }
