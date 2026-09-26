@@ -6,6 +6,20 @@ Class {
 }
 
 { #category : 'tests' }
+FsFileTest >> testCantFindFileByContents [
+
+| file result |
+
+file := FsFile new
+    name: 'rapport.md';
+    contents: 'Voici mon rapport de MIAGE'.
+
+result := file searchByContents: 'Java'.
+
+self assert: result equals: nil
+]
+
+{ #category : 'tests' }
 FsFileTest >> testDoesNotGiveFileWhenNameDoesNotMatch [
 
 | file result |
